@@ -14,7 +14,7 @@ describe Turing::Machine::ConfigurationList do
 
   describe "#get(label, symbol)" do
     describe "when there is no configuration with that label" do
-      it "should return the configuration" do
+      it "should return nil" do
         configuration = @@list.add :b, 0, [], :b
         @@list.get(:c, 0).must_be_nil
       end
