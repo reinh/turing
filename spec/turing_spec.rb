@@ -9,7 +9,19 @@ describe Turing do
     end
 
     describe "#read" do
-      it "should return the entity at the current position"
+      it "should return the entity at the current position on the tape" do
+        head = Turing::Head.new
+        head.write :x
+        head.read.must_equal :x
+      end
+    end
+
+    describe "#write" do
+      it "should write the entity at the current position on the tape" do
+        head = Turing::Head.new
+        head.write :x
+        head.read.must_equal :x
+      end
     end
 
     describe "#right" do

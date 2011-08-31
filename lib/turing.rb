@@ -1,9 +1,18 @@
 module Turing
   class Head
-    attr_reader :position
+    attr_reader :head, :position
 
     def initialize
+      @tape = Turing::Tape.new
       @position = 0
+    end
+
+    def read; 
+      @tape[@position]
+    end
+
+    def write(entity)
+      @tape[@position] = entity
     end
 
     def right; @position += 1 end
