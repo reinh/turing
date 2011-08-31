@@ -19,8 +19,11 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_development_dependency "yard", "~> 0.6.0"
-  s.add_development_dependency "bundler", "~> 1.0.0"
-  s.add_development_dependency "minitest", ">= 0"
-  s.add_development_dependency "rcov", ">= 0"
+  s.add_development_dependency "yard",                "~> 0.6.0"
+  s.add_development_dependency "bundler",             "~> 1.0.0"
+  s.add_development_dependency "minitest",            ">= 0"
+  s.add_development_dependency "minitest-colorize",   ">= 0"
+  s.add_development_dependency "rcov",                ">= 0"
+  s.add_development_dependency "guard",               ">= 0"
+  s.add_development_dependency "guard-minitest",      ">= 0"
 end
