@@ -1,15 +1,15 @@
 require 'helper'
 
-describe Turing::Head do
+describe Turing::Machine::Head do
   describe "#position" do
     describe "when initialized" do
-      it("must be 0") { Turing::Head.new.position.must_equal 0 }
+      it("must be 0") { Turing::Machine::Head.new.position.must_equal 0 }
     end
   end
 
   describe "#read" do
     it "should return the entity at the current position on the tape" do
-      head = Turing::Head.new
+      head = Turing::Machine::Head.new
       head.write :x
       head.read.must_equal :x
     end
@@ -17,7 +17,7 @@ describe Turing::Head do
 
   describe "#write" do
     it "should write the entity at the current position on the tape" do
-      head = Turing::Head.new
+      head = Turing::Machine::Head.new
       head.write :x
       head.read.must_equal :x
     end
@@ -25,7 +25,7 @@ describe Turing::Head do
 
   describe "#erase" do
     it "should write a nil at the current position on the tape" do
-      head = Turing::Head.new
+      head = Turing::Machine::Head.new
       head.write :x
       head.read.must_equal :x
       head.erase
@@ -35,7 +35,7 @@ describe Turing::Head do
 
   describe "#right" do
     it "should increment the position of the tape" do
-      head = Turing::Head.new
+      head = Turing::Machine::Head.new
       head.right
       head.position.must_equal 1
     end
@@ -43,7 +43,7 @@ describe Turing::Head do
 
   describe "#left" do
     it "should decrement the position of the tape" do
-      head = Turing::Head.new
+      head = Turing::Machine::Head.new
       head.right
       head.left
       head.position.must_equal 0

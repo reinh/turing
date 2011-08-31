@@ -1,4 +1,4 @@
-require 'turing/head'
+require 'turing/machine'
 
 module Turing
 end
