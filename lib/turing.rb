@@ -9,5 +9,9 @@ module Turing
     def right
       @position += 1
     end
+
+    def left
+      @position -= 1
+    end
   end
 end

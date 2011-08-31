@@ -19,5 +19,14 @@ describe Turing do
         head.position.must_equal 1
       end
     end
+
+    describe "#left" do
+      it "should decrement the position of the tape" do
+        head = Turing::Head.new
+        head.right
+        head.left
+        head.position.must_equal 0
+      end
+    end
   end
 end
