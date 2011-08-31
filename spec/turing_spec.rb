@@ -24,6 +24,16 @@ describe Turing do
       end
     end
 
+    describe "#erase" do
+      it "should write a nil at the current position on the tape" do
+        head = Turing::Head.new
+        head.write :x
+        head.read.must_equal :x
+        head.erase
+        head.read.must_be_nil
+      end
+    end
+
     describe "#right" do
       it "should increment the position of the tape" do
         head = Turing::Head.new
