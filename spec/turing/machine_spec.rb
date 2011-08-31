@@ -57,5 +57,25 @@ describe Turing::Machine do
         machine.head.read.must_equal nil
       end
     end
+
+    describe "when the configuration action is [[:right]]" do
+      it "moves the tape to the right" do
+        machine = Turing::Machine.new
+        config = machine.configuration_list.add :b, nil, [[:right]], :b
+        old_pos = machine.head.position
+        machine.step
+        machine.head.position.must_equal old_pos + 1
+      end
+    end
+
+    describe "when the configuration action is [[:left]]" do
+      it "moves the tape to the left" do
+        machine = Turing::Machine.new
+        config = machine.configuration_list.add :b, nil, [[:left]], :b
+        old_pos = machine.head.position
+        machine.step
+        machine.head.position.must_equal old_pos - 1
+      end
+    end
   end
 end

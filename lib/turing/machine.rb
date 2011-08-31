@@ -27,6 +27,8 @@ module Turing
         case action.first
         when :write then head.write action.last
         when :erase then head.erase
+        when :right then head.right
+        when :left  then head.left
         end
       end
 
