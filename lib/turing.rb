@@ -6,12 +6,7 @@ module Turing
       @position = 0
     end
 
-    def right
-      @position += 1
-    end
-
-    def left
-      @position -= 1
-    end
+    def right; @position += 1 end
+    def left;  @position -= 1 end
   end
 end
