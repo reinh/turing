@@ -26,4 +26,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rcov",                ">= 0"
   s.add_development_dependency "guard",               ">= 0"
   s.add_development_dependency "guard-minitest",      ">= 0"
+  s.add_development_dependency "growl_notify",        ">= 0"
 end
