@@ -29,4 +29,16 @@ describe Turing do
       end
     end
   end
+
+  describe Turing::Tape do
+    it "should be an array" do
+      Turing::Tape.new.must_be_kind_of Array
+    end
+
+    describe "#inspect" do
+      it "should include its class name" do
+        Turing::Tape.new.inspect.must_include "<Turing::Tape>"
+      end
+    end
+  end
 end
