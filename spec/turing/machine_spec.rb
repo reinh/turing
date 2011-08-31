@@ -47,5 +47,15 @@ describe Turing::Machine do
         machine.head.read.must_equal 0
       end
     end
+
+    describe "when the configuration action is [[:erase]]" do
+      it "writes a nil to the tape" do
+        machine = Turing::Machine.new
+        machine.head.write 0
+        config = machine.configuration_list.add :b, 0, [[:erase]], :b
+        machine.step
+        machine.head.read.must_equal nil
+      end
+    end
   end
 end

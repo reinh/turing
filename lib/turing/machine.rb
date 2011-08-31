@@ -25,8 +25,8 @@ module Turing
 
       current_configuration.actions.each do |action|
         case action.first
-        when :write
-          head.write action.last
+        when :write then head.write action.last
+        when :erase then head.erase
         end
       end
 
