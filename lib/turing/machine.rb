@@ -1,4 +1,5 @@
 require 'turing/machine/head'
+require 'turing/machine/configuration_list'
 
 module Turing
   class Machine
