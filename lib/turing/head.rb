@@ -2,7 +2,7 @@ require 'turing/tape'
 
 module Turing
   class Head
-    attr_reader :head, :position
+    attr_reader :tape, :position
 
     def initialize
       @tape = Turing::Tape.new
