@@ -69,6 +69,11 @@ describe Turing do
         tape.to_s.must_equal tape.join
         tape.to_s.must_equal "123"
       end
+
+      it "should replace nils with underbars" do
+        tape = Turing::Tape.new([1,nil,3])
+        tape.to_s.must_equal "1_3"
+      end
     end
   end
 end

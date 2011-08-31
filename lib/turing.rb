@@ -29,7 +29,7 @@ module Turing
     end
 
     def to_s
-      join
+      map{|e| e || '_'}.join
     end
   end
 end
