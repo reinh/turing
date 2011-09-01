@@ -34,5 +34,10 @@ module Turing
 
       @current_state = config.next_state
     end
+
+    def ==(other)
+      [configuration_list, current_state, head.position, head.tape] == 
+        [other.configuration_list, other.current_state, other.head.position, other.head.tape]
+    end
   end
 end

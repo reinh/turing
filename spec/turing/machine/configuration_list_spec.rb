@@ -34,4 +34,18 @@ describe Turing::Machine::ConfigurationList do
       end
     end
   end
+
+  describe "==" do
+    describe "when the lists are equal" do
+      it "should be true" do
+        given = Turing::Machine::ConfigurationList.new
+        given.add :b, 0, [], :b
+
+        expected = Turing::Machine::ConfigurationList.new
+        expected.add :b, 0, [], :b
+
+        given.must_be :==, expected
+      end
+    end
+  end
 end

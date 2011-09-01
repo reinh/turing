@@ -88,4 +88,18 @@ describe Turing::Machine do
 
     end
   end
+
+  describe "#==" do
+    describe "when the configuration list, current state, tape position and tape contents are the same" do
+      it "should be true" do
+        given = Turing::Machine.new
+        given.configuration_list.add :b, nil, [[:left]], :c
+
+        expected = Turing::Machine.new
+        expected.configuration_list.add :b, nil, [[:left]], :c
+
+        given.must_be :==, expected
+      end
+    end
+  end
 end

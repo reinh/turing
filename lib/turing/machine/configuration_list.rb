@@ -24,6 +24,14 @@ module Turing
       def get(label, symbol)
         @list[label] && @list[label][symbol]
       end
+
+      def ==(other)
+        list == other.list
+      end
+
+      protected
+
+      attr_reader :list
     end
   end
 end
