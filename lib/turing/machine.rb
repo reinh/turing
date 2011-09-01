@@ -19,11 +19,11 @@ module Turing
     end
 
     def step
-      unless current_configuration
+      unless config = current_configuration
         raise Turing::Machine::UnsatisfactoryError, "No configuration matches current state #{current_state.inspect} and tape symbol #{@head.read.inspect}"
       end
 
-      current_configuration.actions.each do |action|
+      config.actions.each do |action|
         case action.first
         when :write then head.write action.last
         when :erase then head.erase
@@ -32,6 +32,7 @@ module Turing
         end
       end
 
+      @current_state = config.next_state
     end
   end
 end

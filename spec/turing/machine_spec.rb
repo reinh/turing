@@ -77,5 +77,15 @@ describe Turing::Machine do
         machine.head.position.must_equal old_pos - 1
       end
     end
+
+    describe "when the configuration's next state is :c" do
+      it "changes the machine's current state to :c" do
+        machine = Turing::Machine.new
+        config = machine.configuration_list.add :b, nil, [[:left]], :c
+        machine.step
+        machine.current_state.must_equal :c
+      end
+
+    end
   end
 end
