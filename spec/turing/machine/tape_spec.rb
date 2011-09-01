@@ -23,4 +23,11 @@ describe Turing::Machine::Tape do
       tape.to_s.must_equal "1_3"
     end
   end
+
+  describe "#to_binary_s" do
+    it "should return only the 0s and 1s on the tape" do
+      tape = Turing::Machine::Tape.new([0,1,0,1])
+      tape.to_binary_s.must_equal '0101'
+    end
+  end
 end
