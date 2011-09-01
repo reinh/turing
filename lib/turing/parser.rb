@@ -9,7 +9,8 @@ module Turing
     end
 
     def split_lines
-      @machine_spec.split("\n")
+      lines = @machine_spec.split("\n")
+      lines.reject{ |line| line.strip.empty? || line[/\s+#/] } 
     end
     private :split_lines
 

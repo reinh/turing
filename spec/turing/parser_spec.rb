@@ -37,5 +37,20 @@ describe Turing::Parser do
         Turing::Parser.new(machine_spec).to_configurations.must_equal [configuration]
       end
     end
+
+    describe "a machine with empty lines and comments" do
+      it "should ignore them" do
+        machine_spec = <<-SPEC
+
+        # This is a comment
+        #
+        b, None, P0RP1R, b
+
+        SPEC
+
+        configuration = Turing::Machine::Configuration.new :b, nil, [[:write, 0], [:right], [:write, 1], [:right]], :b
+        Turing::Parser.new(machine_spec).to_configurations.must_equal [configuration]
+      end
+    end
   end
 end
