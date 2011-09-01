@@ -42,9 +42,9 @@ describe Turing::Parser do
       it "should ignore them" do
         machine_spec = <<-SPEC
 
-        # This is a comment
-        #
-        b, None, P0RP1R, b
+# This is a comment
+#
+b, None, P0RP1R, b
 
         SPEC
 

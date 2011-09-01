@@ -10,7 +10,7 @@ module Turing
 
     def split_lines
       lines = @machine_spec.split("\n")
-      lines.reject{ |line| line.strip.empty? || line[/\s+#/] } 
+      lines.reject{ |line| line.strip.empty? || line[/^\s*#/] } 
     end
     private :split_lines
 
@@ -24,7 +24,7 @@ module Turing
       end
 
       def to_configuration
-        state, symbol, actions, end_state = @line.split(",").map{|e| e.strip}
+        state, symbol, actions, end_state = @line.split(/,/).map{|e| e.strip}
 
         state     = state.intern
         symbol    = parse_symbol(symbol)
