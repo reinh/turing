@@ -24,8 +24,7 @@ This machine prints the sequence "0101..." onto the tape on successive squares.
 Note that Turing uses :b as the starting state... just as Turing did. Well, he
 used a gothic letter 'b', but close enough.
 
-TODO
-----
+### ASCII Turing Machine Specification
 
 Read an ASCII Turing configuration language (TCL?) that specifies the
 configurations of a Turing machine as closely to their specification in the
