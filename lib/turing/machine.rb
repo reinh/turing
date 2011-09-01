@@ -8,10 +8,14 @@ module Turing
 
     attr_reader :configuration_list, :current_state, :head
 
-    def initialize
+    def initialize(configurations=[])
       @current_state = :b # for begin
       @configuration_list = Turing::Machine::ConfigurationList.new
       @head = Turing::Machine::Head.new
+
+      # If configurations is an array of Configuration structs, * will still
+      # unpack it properly
+      configurations.each{|c| @configuration_list.add *c}
     end
 
     def current_configuration
