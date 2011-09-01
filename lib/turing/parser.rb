@@ -1,5 +1,9 @@
 module Turing
   class Parser
+    def self.parse(str)
+      new(str).to_configurations
+    end
+
     def initialize(machine_spec)
       @machine_spec = machine_spec
     end
