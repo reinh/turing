@@ -6,6 +6,11 @@ module Turing
     class Error < StandardError; end
     class UnsatisfactoryError < Error; end
 
+    def self.build(str)
+      configurations = Turing::Parser.parse(str)
+      Turing::Machine.new(configurations)
+    end
+
     attr_reader :configuration_list, :current_state, :head
 
     def initialize(configurations=[])

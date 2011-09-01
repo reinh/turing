@@ -3,7 +3,7 @@ module Turing
     def initialize(machine_spec, options={})
       @options = options
       @options[:steps] ||= 50
-      @machine = Turing.build(machine_spec)
+      @machine = Turing::Machine.build(machine_spec)
     end
 
     def run
