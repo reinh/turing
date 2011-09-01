@@ -20,12 +20,10 @@ module Turing
           @list[label][symbol] = config
         end
       end
-      alias :<< :add
 
       def get(label, symbol)
         @list[label] && @list[label][symbol]
       end
-      alias :[] :get
     end
   end
 end
