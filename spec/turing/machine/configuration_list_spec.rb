@@ -10,6 +10,12 @@ describe Turing::Machine::ConfigurationList do
       configuration.must_be_instance_of Turing::Machine::Configuration
       configuration.to_a.must_equal [:b, 0, [], :b]
     end
+
+    describe "when the action is unknown" do
+      it "raises a Turing::Machine::Error" do
+        lambda { @@list.add :b, 0, [[:unknown]], :b }.must_raise Turing::Machine::Error
+      end
+    end
   end
 
   describe "#get(label, symbol)" do

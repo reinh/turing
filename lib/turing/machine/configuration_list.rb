@@ -11,6 +11,10 @@ module Turing
       end
 
       def add(label, symbol, actions, next_state)
+        if action = actions.map{|a| a.first}.detect{|a| not [:right, :left, :write, :erase].include?(a) }
+          raise Turing::Machine::Error.new "Unable to add configuration with invalid action #{action.inspect}"
+        end
+
         Configuration.new(label, symbol, actions, next_state).tap do |config|
           @list[label] ||= {}
           @list[label][symbol] = config
