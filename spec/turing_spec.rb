@@ -2,7 +2,7 @@ require 'helper'
 require 'stringio'
 
 describe Turing do
-  describe ".from_io" do
+  describe ".build" do
     it "should parse the configurations from the file" do
       machine_spec = <<-SPEC
         b, None, P0R, c
@@ -11,9 +11,7 @@ describe Turing do
         f, None, R,   b
       SPEC
 
-      machine_spec_io = StringIO.new(machine_spec)
-
-      given = Turing.from_io(machine_spec_io)
+      given = Turing.build(machine_spec)
 
       expected = Turing::Machine.new([
         [:b, nil, [[:write, 0], [:right]], :c],
