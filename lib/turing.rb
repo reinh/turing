@@ -1,13 +1,14 @@
 require 'turing/machine'
 require 'turing/parser'
+require 'turing/runner'
 
 module Turing
   def self.read_from_file(fh)
-    from_io(File.read(fh))
+    build(File.read(fh))
   end
 
-  def self.from_io(io)
-    configurations = Turing::Parser.parse(io.read)
+  def self.build(str)
+    configurations = Turing::Parser.parse(str)
     Turing::Machine.new(configurations)
   end
 end

@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+
+require 'turing'
+require 'optparse'
+
+options = {}
+optparser = OptionParser.new do |opts|
+  opts.banner = "Usage: turing [OPTIONS] [FILE]"
+  opts.banner << "\n\n"
+  opts.banner << "Run a turing machine simulation. Takes a file or STDIN"
+
+  opts.separator ""
+  opts.separator "Options:"
+
+  opts.on("-n", "--steps [NUMBER]", Integer, "Number of steps to run") do |steps|
+    options[:steps] = steps
+  end
+
+  opts.on_tail("-h", "--help", "Usage information") do
+    puts opts
+    exit
+  end
+
+  opts.on_tail("-v", "--version", "Show version") do
+    require 'turing/version'
+    puts "turing #{Turing::VERSION}"
+    exit
+  end
+end
+
+begin
+  optparser.parse!
+  machine_spec = ARGF.read
+  raise "No turing machine specification found" if machine_spec.empty?
+  Turing::Runner.new(machine_spec, options).run
+rescue => e
+  $stderr.puts "fatal - #{e}"
+end
+
